@@ -85,7 +85,7 @@ void loop() {
     // build frame
     uint8_t len = FCP_Get_Frame_Length(callsign, optDataLen);
     uint8_t* frame = new uint8_t[len];
-    FCP_Encode(callsign, functionId, optDataLen, (uint8_t*)optData, frame);
+    FCP_Encode(frame, callsign, functionId, optDataLen, (uint8_t*)optData);
     PRINT_BUFF(frame, len);
 
     // send data
