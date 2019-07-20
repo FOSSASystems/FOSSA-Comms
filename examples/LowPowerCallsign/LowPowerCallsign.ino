@@ -78,7 +78,7 @@ void loop() {
     Serial.println(F("Transmitting packet ... "));
 
     // data to transmit
-    uint8_t functionId = CMD_TRANSMIT_CALLSIGN_LOW_SF;
+    uint8_t functionId = CMD_TRANSMIT_CALLSIGN_LOW_POWER;
 
     // build frame
     uint8_t len = FCP_Get_Frame_Length(callsign);
@@ -87,7 +87,6 @@ void loop() {
     PRINT_BUFF(frame, len);
 
     // send data
-    radio.setSpreadingFactor(11);
     int state = radio.transmit(frame, len);
     delete[] frame;
 
@@ -98,7 +97,6 @@ void loop() {
 
     // set radio mode to reception with low SF
     Serial.println(F("Waiting for response ... "));
-    radio.setSpreadingFactor(7);
     radio.setDio1Action(setFlag);
     radio.startReceive();
     enableInterrupt = true;
@@ -128,8 +126,8 @@ void loop() {
       Serial.print(F("Function ID: 0x"));
       Serial.println(functionId, HEX);
 
-      if(functionId == RESP_CALLSIGN_LOW_SF) {
-        Serial.println(F("Got low SF callsign!"));
+      if(functionId == RESP_CALLSIGN_LOW_POWER) {
+        Serial.println(F("Got low power callsign!"));
       }
       
     } else {
