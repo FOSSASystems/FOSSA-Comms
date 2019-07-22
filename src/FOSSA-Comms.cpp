@@ -17,6 +17,9 @@ int16_t FCP_Get_Frame_Length(char* callsign, uint8_t optDataLen, const char* pas
   // check if the frame is encrpyted
   if(password != NULL) {
     frameLen += strlen(password);
+    if(optDataLen == 0) {
+      frameLen++;
+    }
     frameLen += 16 - ((1 + optDataLen + strlen(password)) % 16);
   }
 
@@ -220,8 +223,10 @@ int16_t FCP_Encode(uint8_t* frame, char* callsign, uint8_t functionId, uint8_t o
     encSectionPtr += strlen(password);
 
     // set optional data
-    memcpy(encSectionPtr, optData, optDataLen);
-    encSectionPtr += optDataLen;
+    if(optData != NULL) {
+      memcpy(encSectionPtr, optData, optDataLen);
+      encSectionPtr += optDataLen;
+    }
 
     // add padding
     for(uint8_t i = 0; i < paddingLen; i++) {
