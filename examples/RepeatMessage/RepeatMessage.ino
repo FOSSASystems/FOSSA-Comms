@@ -36,7 +36,7 @@ void setup() {
 
   // initialize SX1262
   Serial.print(F("Initializing ... "));
-  int state = radio.begin(434.0, 125.0, 11, 8, 0x0F0F);
+  int state = radio.begin(436.7, 125.0, 11, 8, 0x0F0F);
   if (state == ERR_NONE) {
     Serial.println(F("success!"));
   } else {

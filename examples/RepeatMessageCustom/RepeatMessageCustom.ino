@@ -3,7 +3,7 @@
 #include <RadioLib.h>
 
 // modulation properties to be used in transmission
-#define BANDWIDTH               5   // 41.7 kHz - see array below
+#define BANDWIDTH               7   // 125 kHz - see array below
 #define SPREADING_FACTOR        12  // SF 12
 #define CODING_RATE             7   // CR 4/7
 #define PREAMBLE_LENGTH         32  // symbols
@@ -27,7 +27,7 @@ char callsign[] = "FOSSASAT-1";
 uint32_t lastTransmit = 0;
 
 // transmission period in ms
-const uint32_t transmitPeriod = 4000;
+const uint32_t transmitPeriod = 6000;
 
 // interrupt flags
 volatile bool receivedFlag = false;
@@ -47,7 +47,7 @@ void setup() {
 
   // initialize SX1262
   Serial.print(F("Initializing ... "));
-  int state = radio.begin(434.0, 125.0, 11, 8, 0x0F0F, 21, 60, 16);
+  int state = radio.begin(436.7, 125.0, 11, 8, 0x0F0F, 21, 120, 16);
   if (state == ERR_NONE) {
     Serial.println(F("success!"));
   } else {
@@ -110,7 +110,7 @@ void loop() {
     PRINT_BUFF(frame, len);
 
     // send data with default configuration
-    radio.begin(434.0, 125.0, 11, 8, 0x0F0F, 21, 60, 16);
+    radio.begin(436.7, 125.0, 11, 8, 0x0F0F, 21, 120, 16);
     radio.setCRC(true);
     int state = radio.transmit(frame, len);
     delete[] frame;
@@ -122,7 +122,7 @@ void loop() {
 
     // set radio mode to reception with custom configuration
     Serial.println(F("Waiting for response ... "));
-    radio.begin(434.0, bws[BANDWIDTH], SPREADING_FACTOR, CODING_RATE, 0x0F0F, OUTPUT_POWER, 60, PREAMBLE_LENGTH);
+    radio.begin(436.7, bws[BANDWIDTH], SPREADING_FACTOR, CODING_RATE, 0x0F0F, OUTPUT_POWER, 120, PREAMBLE_LENGTH);
     radio.setCRC(CRC_ENABLED);
     radio.setDio1Action(setFlag);
     radio.startReceive();
