@@ -161,6 +161,9 @@ void loop() {
           Serial.print(F("boardTemperature = "));
           Serial.println(FCP_Get_Board_Temperature(respOptData));
           
+          Serial.print(F("mcuTemperature = "));
+          Serial.println(FCP_Get_MCU_Temperature(respOptData));
+          
           Serial.print(F("resetCounter = "));
           Serial.println(FCP_Get_Reset_Counter(respOptData));
           

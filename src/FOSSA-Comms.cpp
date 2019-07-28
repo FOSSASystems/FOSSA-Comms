@@ -297,13 +297,23 @@ float FCP_Get_Board_Temperature(uint8_t* optData) {
   return(FCP_System_Info_Get_Temperature(optData, 9));
 }
 
+int8_t FCP_Get_MCU_Temperature(uint8_t* optData) {
+  if(optData == NULL) {
+    return(0);
+  }
+
+  int8_t val;
+  memcpy(&val, optData + 10, sizeof(int8_t));
+  return(val);
+}
+
 uint16_t FCP_Get_Reset_Counter(uint8_t* optData) {
   if(optData == NULL) {
     return(0);
   }
 
   uint16_t val;
-  memcpy(&val, optData + 11, sizeof(uint16_t));
+  memcpy(&val, optData + 12, sizeof(uint16_t));
   return(val);
 }
 
@@ -312,7 +322,7 @@ uint8_t FCP_Get_Power_Configuration(uint8_t* optData) {
     return(0);
   }
 
-  return(optData[13]);
+  return(optData[14]);
 }
 
 float FCP_System_Info_Get_Voltage(uint8_t* optData, uint8_t pos) {
