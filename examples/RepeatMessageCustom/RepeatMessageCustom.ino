@@ -11,7 +11,7 @@
 #define OUTPUT_POWER            10  // dBm
 
 // array of allowed bandwidth values in kHz
-float bws[] = {7.8, 10.4, 15.6, 20.8, 31.25, 41.7, 62.5, 125.0, 250.0, 500.0};
+float bws[] = {7.8, 10.4, 15.6, 20.8, 31.25, 41.7, 62.5, 125.0};
 
 // SX1262 has the following connections:
 // NSS pin:   10
