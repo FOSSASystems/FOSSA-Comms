@@ -138,13 +138,28 @@ void loop() {
       Serial.print(F("Function ID: 0x"));
       Serial.println(functionId, HEX);
 
+      // get optional data length
+      uint8_t respOptDataLen = 0;
+      if(functionId < PRIVATE_OFFSET) {
+        // public frame
+        respOptDataLen = FCP_Get_OptData_Length(callsign, respFrame, respLen);
+      } else {
+        // private frame
+        respOptDataLen = FCP_Get_OptData_Length(callsign, respFrame, respLen, encryptionKey, password);
+      }
+
       // check optional data
-      uint8_t respOptDataLen = FCP_Get_OptData_Length(callsign, respFrame, respLen, encryptionKey, password);
       if(respOptDataLen > 0) {
         // frame contains optional data
         uint8_t* respOptData = new uint8_t[respOptDataLen];
-        FCP_Get_OptData(callsign, respFrame, respLen, respOptData, encryptionKey, password);
-
+        if(functionId < PRIVATE_OFFSET) {
+          // public frame
+          FCP_Get_OptData(callsign, respFrame, respLen, respOptData);
+        } else {
+          // private frame
+          FCP_Get_OptData(callsign, respFrame, respLen, respOptData, encryptionKey, password);
+        }
+        
         // print optional data
         Serial.print(F("Optional data ("));
         Serial.print(respOptDataLen);
