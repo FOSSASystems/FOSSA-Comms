@@ -71,7 +71,15 @@ int16_t FCP_Get_OptData_Length(char* callsign, uint8_t* frame, uint8_t frameLen,
 
   } else {
     // unencrypted frame
-    return((int16_t)frame[strlen(callsign) + 1]);
+    int16_t optDataLen = frame[strlen(callsign) + 1];
+
+    // check if optDataLen field matches the expected length
+    if(optDataLen != (uint8_t)(frameLen - strlen(callsign) - 2)) {
+      // length mismatch
+      return(ERR_LENGTH_MISMATCH);
+    }
+
+    return(optDataLen);
   }
 
   return(ERR_INCORRECT_PASSWORD);

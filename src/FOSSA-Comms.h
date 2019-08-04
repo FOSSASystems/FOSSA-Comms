@@ -19,6 +19,7 @@
 #define ERR_CALLSIGN_INVALID                          -1
 #define ERR_FRAME_INVALID                             -2
 #define ERR_INCORRECT_PASSWORD                        -3
+#define ERR_LENGTH_MISMATCH                           -4
 
 // communication protocol definitions
 #define RESPONSE_OFFSET                                 0x10
