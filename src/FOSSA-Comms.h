@@ -46,9 +46,8 @@
 #define CMD_SET_TRANSMIT_ENABLE                         (0x03 + PRIVATE_OFFSET)
 #define CMD_SET_CALLSIGN                                (0x04 + PRIVATE_OFFSET)
 #define CMD_SET_SF_MODE                                 (0x05 + PRIVATE_OFFSET)
-#define CMD_SET_MPPT_ENABLE                             (0x06 + PRIVATE_OFFSET)
-#define CMD_SET_MPPT_MODE                               (0x07 + PRIVATE_OFFSET)
-#define CMD_SET_LOW_POWER_ENABLE                        (0x08 + PRIVATE_OFFSET)
+#define CMD_SET_MPPT_MODE                               (0x06 + PRIVATE_OFFSET)
+#define CMD_SET_LOW_POWER_ENABLE                        (0x07 + PRIVATE_OFFSET)
 
 // private responses (encrypted downlink messages)
 #define RESP_DEPLOYMENT_STATE                           (CMD_DEPLOY + RESPONSE_OFFSET)
