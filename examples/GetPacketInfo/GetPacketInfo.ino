@@ -145,6 +145,8 @@ void loop() {
           Serial.print(respOptData[1] / -2.0);
           Serial.println(F(" dBm"));
         }
+
+        delete[] respOptData;
       }
       
     } else {

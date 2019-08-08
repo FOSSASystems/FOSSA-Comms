@@ -170,6 +170,8 @@ void loop() {
           Serial.print(F("powerConfig = 0b"));
           Serial.println(FCP_Get_Power_Configuration(respOptData), BIN);
         }
+
+        delete[] respOptData;
       }
       
     } else {
