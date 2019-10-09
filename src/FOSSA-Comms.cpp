@@ -174,7 +174,7 @@ int16_t FCP_Get_OptData(char* callsign, uint8_t* frame, uint8_t frameLen, uint8_
       uint8_t optDataLen = *framePtr;
       framePtr += 1;
 
-      // get option data
+      // get optional data
       memcpy(optData, framePtr, optDataLen);
       framePtr += optDataLen;
     }
