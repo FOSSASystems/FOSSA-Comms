@@ -141,7 +141,7 @@ void loop() {
           Serial.println(FCP_Get_Battery_Charging_Voltage(respOptData));
           
           Serial.print(F("batteryChargingCurrent = "));
-          Serial.println(FCP_Get_Battery_Charging_Current(respOptData));
+          Serial.println(FCP_Get_Battery_Charging_Current(respOptData), 4);
           
           Serial.print(F("batteryVoltage = "));
           Serial.println(FCP_Get_Battery_Voltage(respOptData));
