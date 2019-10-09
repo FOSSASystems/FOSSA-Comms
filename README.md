@@ -5,7 +5,7 @@ This Library is intended to be used with the FOSSASAT-1 Satellite developed by F
 
 ## IMPORTANT!
 
-Before any attempt of communication with FOSSASAT-1, please consult [the Guide document in FOSSASAT-1](https://github.com/FOSSASystems/FOSSASAT-1/blob/master/FOSSASAT-1%20Comms%20Guide.pdf) in the FOSSASAT-1 repository and [the current status of FOSSASAT-1.](http://groundstationdatabase.com/index.php)
+Before any attempt of communication with FOSSASAT-1, please consult [the Guide document](https://github.com/FOSSASystems/FOSSASAT-1/blob/master/FOSSASAT-1%20Comms%20Guide.pdf) in the FOSSASAT-1 repository and [the current status of FOSSASAT-1.](http://groundstationdatabase.com/index.php)
 
 ## Reference implementation of FOSSASAT Communication Protocol (FCP).
 
