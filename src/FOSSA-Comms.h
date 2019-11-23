@@ -2,8 +2,7 @@
 #define _FOSSA_COMMS_H
 
 #include <Arduino.h>
-#include <AESLib.h>
-
+#include <aes.hpp>
 #include <string.h>
 
 // constants

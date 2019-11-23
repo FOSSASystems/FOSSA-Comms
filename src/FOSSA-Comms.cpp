@@ -54,7 +54,12 @@ int16_t FCP_Get_OptData_Length(char* callsign, uint8_t* frame, uint8_t frameLen,
     memcpy(encSection, frame + strlen(callsign) + 1, encSectionLen);
 
     // decrypt
-    aes128_dec_multiple(key, encSection, encSectionLen);
+    struct AES_ctx ctx;
+    AES_init_ctx(&ctx, key);
+    uint8_t numBlocks = encSectionLen / 16;
+    for(uint8_t i = 0; i < numBlocks; i++) {
+      AES_ECB_decrypt(&ctx, encSection + (i * 16));
+    }
 
     // check password
     if(memcmp(encSection + 1, password, strlen(password)) == 0) {
@@ -138,7 +143,12 @@ int16_t FCP_Get_OptData(char* callsign, uint8_t* frame, uint8_t frameLen, uint8_
     memcpy(encSection, framePtr, encSectionLen);
 
     // decrypt
-    aes128_dec_multiple(key, encSection, encSectionLen);
+    struct AES_ctx ctx;
+    AES_init_ctx(&ctx, key);
+    uint8_t numBlocks = encSectionLen / 16;
+    for(uint8_t i = 0; i < numBlocks; i++) {
+      AES_ECB_decrypt(&ctx, encSection + (i * 16));
+    }
     uint8_t* encSectionPtr = encSection;
 
     // get optional data length
@@ -242,7 +252,12 @@ int16_t FCP_Encode(uint8_t* frame, char* callsign, uint8_t functionId, uint8_t o
     }
 
     // encrypt
-    aes128_enc_multiple(key, encSection, encSectionLen + paddingLen);
+    struct AES_ctx ctx;
+    AES_init_ctx(&ctx, key);
+    uint8_t numBlocks = (encSectionLen + paddingLen) / 16;
+    for(uint8_t i = 0; i < numBlocks; i++) {
+      AES_ECB_encrypt(&ctx, encSection + (i * 16));
+    }
 
     // copy encrypted section into frame buffer
     memcpy(framePtr, encSection, encSectionLen + paddingLen);
