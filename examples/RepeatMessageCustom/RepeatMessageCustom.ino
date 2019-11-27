@@ -16,9 +16,8 @@ float bws[] = {7.8, 10.4, 15.6, 20.8, 31.25, 41.7, 62.5, 125.0};
 // SX1262 has the following connections:
 // NSS pin:   10
 // DIO1 pin:  2
-// DIO2 pin:  3
 // BUSY pin:  9
-SX1262 radio = new Module(10, 2, 3, 9);
+SX1262 radio = new Module(10, 2, 9);
 
 // satellite callsign
 char callsign[] = "FOSSASAT-1";
@@ -56,19 +55,6 @@ void setup() {
     while (true);
   }
 
-  /*
-    // set TCXO reference voltage
-    Serial.print(F("Setting TCXO reference ... "));
-    state = radio.setTCXO(1.6);
-    if (state == ERR_NONE) {
-      Serial.println(F("success!"));
-    } else {
-      Serial.print(F("failed, code "));
-      Serial.println(state);
-      while (true);
-    }
-  */
-
   // set interrupt service routine
   radio.setDio1Action(setFlag);
 
@@ -85,7 +71,7 @@ void loop() {
 
     // save timestamp
     lastTransmit = millis();
-    
+
     Serial.println(F("Transmitting packet ... "));
 
     // data to transmit
@@ -147,7 +133,7 @@ void loop() {
       Serial.print(respLen);
       Serial.println(F(" bytes:"));
       PRINT_BUFF(respFrame, respLen);
-      
+
       // get function ID
       uint8_t functionId = FCP_Get_FunctionID(callsign, respFrame, respLen);
       Serial.print(F("Function ID: 0x"));
@@ -162,7 +148,7 @@ void loop() {
           // frame contains optional data
           uint8_t* respOptData = new uint8_t[respOptDataLen];
           FCP_Get_OptData(callsign, respFrame, respLen, respOptData);
-  
+
           // print optional data
           Serial.print(F("Optional data ("));
           Serial.print(respOptDataLen);
@@ -171,7 +157,7 @@ void loop() {
           delete[] respOptData;
         }
       }
-      
+
     } else {
       Serial.println(F("Reception failed, code "));
       Serial.println(state);

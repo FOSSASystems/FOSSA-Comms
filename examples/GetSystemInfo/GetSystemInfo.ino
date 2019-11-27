@@ -5,9 +5,8 @@
 // SX1262 has the following connections:
 // NSS pin:   10
 // DIO1 pin:  2
-// DIO2 pin:  3
 // BUSY pin:  9
-SX1262 radio = new Module(10, 2, 3, 9);
+SX1262 radio = new Module(10, 2, 9);
 
 // satellite callsign
 char callsign[] = "FOSSASAT-1";
@@ -45,19 +44,6 @@ void setup() {
     while (true);
   }
 
-  /*
-    // set TCXO reference voltage
-    Serial.print(F("Setting TCXO reference ... "));
-    state = radio.setTCXO(1.6);
-    if (state == ERR_NONE) {
-      Serial.println(F("success!"));
-    } else {
-      Serial.print(F("failed, code "));
-      Serial.println(state);
-      while (true);
-    }
-  */
-
   // set interrupt service routine
   radio.setDio1Action(setFlag);
 
@@ -74,7 +60,7 @@ void loop() {
 
     // save timestamp
     lastTransmit = millis();
-    
+
     Serial.println(F("Transmitting packet ... "));
 
     // data to transmit
@@ -120,7 +106,7 @@ void loop() {
       Serial.print(respLen);
       Serial.println(F(" bytes:"));
       PRINT_BUFF(respFrame, respLen);
-      
+
       // get function ID
       uint8_t functionId = FCP_Get_FunctionID(callsign, respFrame, respLen);
       Serial.print(F("Function ID: 0x"));
@@ -136,44 +122,44 @@ void loop() {
         // check system info response
         if(functionId == RESP_SYSTEM_INFO) {
           Serial.println(F("System info:"));
-          
+
           Serial.print(F("batteryChargingVoltage = "));
           Serial.println(FCP_Get_Battery_Charging_Voltage(respOptData));
-          
+
           Serial.print(F("batteryChargingCurrent = "));
           Serial.println(FCP_Get_Battery_Charging_Current(respOptData), 4);
-          
+
           Serial.print(F("batteryVoltage = "));
           Serial.println(FCP_Get_Battery_Voltage(respOptData));
-          
+
           Serial.print(F("solarCellAVoltage = "));
           Serial.println(FCP_Get_Solar_Cell_Voltage(0, respOptData));
-          
+
           Serial.print(F("solarCellBVoltage = "));
           Serial.println(FCP_Get_Solar_Cell_Voltage(1, respOptData));
-          
+
           Serial.print(F("solarCellCVoltage = "));
           Serial.println(FCP_Get_Solar_Cell_Voltage(2, respOptData));
-          
+
           Serial.print(F("batteryTemperature = "));
           Serial.println(FCP_Get_Battery_Temperature(respOptData));
-          
+
           Serial.print(F("boardTemperature = "));
           Serial.println(FCP_Get_Board_Temperature(respOptData));
-          
+
           Serial.print(F("mcuTemperature = "));
           Serial.println(FCP_Get_MCU_Temperature(respOptData));
-          
+
           Serial.print(F("resetCounter = "));
           Serial.println(FCP_Get_Reset_Counter(respOptData));
-          
+
           Serial.print(F("powerConfig = 0b"));
           Serial.println(FCP_Get_Power_Configuration(respOptData), BIN);
         }
 
         delete[] respOptData;
       }
-      
+
     } else {
       Serial.println(F("Reception failed, code "));
       Serial.println(state);
