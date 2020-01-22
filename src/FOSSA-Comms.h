@@ -1,9 +1,22 @@
 #ifndef _FOSSA_COMMS_H
 #define _FOSSA_COMMS_H
 
-#include <Arduino.h>
 #include <aes.hpp>
 #include <string.h>
+
+#if ARDUINO >= 100
+  #include "Arduino.h"
+#else
+  #error "Unsupported Arduino version (< 1.0.0)"
+#endif
+
+// version definitions
+#define FCP_VERSION_MAJOR  (0x01)
+#define FCP_VERSION_MINOR  (0x00)
+#define FCP_VERSION_PATCH  (0x00)
+#define FCP_VERSION_EXTRA  (0x00)
+
+#define FCP_VERSION ((FCP_VERSION_MAJOR << 24) | (FCP_VERSION_MINOR << 16) | (FCP_VERSION_PATCH << 8) | (FCP_VERSION_EXTRA))
 
 // constants
 #define VOLTAGE_MULTIPLIER                            20 // 20 mV resolution
