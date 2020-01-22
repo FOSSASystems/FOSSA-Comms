@@ -326,7 +326,7 @@ int8_t FCP_Get_MCU_Temperature(uint8_t* optData) {
   }
 
   int8_t val;
-  memcpy(&val, optData + 10, sizeof(int8_t));
+  memcpy(&val, optData + 11, sizeof(int8_t));
   return(val);
 }
 
