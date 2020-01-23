@@ -61,10 +61,12 @@
 #define CMD_SET_MPPT_MODE                               (0x06 + PRIVATE_OFFSET)
 #define CMD_SET_LOW_POWER_ENABLE                        (0x07 + PRIVATE_OFFSET)
 #define CMD_SET_RECEIVE_WINDOWS                         (0x08 + PRIVATE_OFFSET)
+#define CMD_RECORD_SOLAR_CELLS                          (0x09 + PRIVATE_OFFSET)
 
 // private responses (encrypted downlink messages)
 #define RESP_DEPLOYMENT_STATE                           (CMD_DEPLOY + RESPONSE_OFFSET)
 #define RESP_INCORRECT_PASSWORD                         (CMD_RESTART + RESPONSE_OFFSET)
+#define RESP_RECORD_SOLAR_CELLS                         (CMD_RECORD_SOLAR_CELLS + RESPONSE_OFFSET)
 
 #define PRINT_BUFF(BUFF, LEN) { \
   for(size_t i = 0; i < LEN; i++) { \
