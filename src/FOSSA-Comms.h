@@ -42,14 +42,17 @@
 #define CMD_RETRANSMIT                                  (0x01)
 #define CMD_RETRANSMIT_CUSTOM                           (0x02)
 #define CMD_TRANSMIT_SYSTEM_INFO                        (0x03)
-#define CMD_GET_LAST_PACKET_INFO                        (0x04)
+#define CMD_GET_PACKET_INFO                             (0x04)
+#define CMD_GET_STATISTICS                              (0x05)
 
 // public responses (unencrypted downlink messages)
 #define RESP_PONG                                       (CMD_PING + RESPONSE_OFFSET)
 #define RESP_REPEATED_MESSAGE                           (CMD_RETRANSMIT + RESPONSE_OFFSET)
 #define RESP_REPEATED_MESSAGE_CUSTOM                    (CMD_RETRANSMIT_CUSTOM + RESPONSE_OFFSET)
 #define RESP_SYSTEM_INFO                                (CMD_TRANSMIT_SYSTEM_INFO + RESPONSE_OFFSET)
-#define RESP_LAST_PACKET_INFO                           (CMD_GET_LAST_PACKET_INFO + RESPONSE_OFFSET)
+#define RESP_PACKET_INFO                                (CMD_GET_PACKET_INFO + RESPONSE_OFFSET)
+#define RESP_DEPLOYMENT_STATE                           (CMD_GET_STATISTICS + 1 + RESPONSE_OFFSET)
+#define RESP_RECORDED_SOLAR_CELLS                       (CMD_GET_STATISTICS + 2 + RESPONSE_OFFSET)
 
 // private commands (encrypted uplink messages)
 #define CMD_DEPLOY                                      (0x00 + PRIVATE_OFFSET)
@@ -62,11 +65,6 @@
 #define CMD_SET_LOW_POWER_ENABLE                        (0x07 + PRIVATE_OFFSET)
 #define CMD_SET_RECEIVE_WINDOWS                         (0x08 + PRIVATE_OFFSET)
 #define CMD_RECORD_SOLAR_CELLS                          (0x09 + PRIVATE_OFFSET)
-
-// private responses (encrypted downlink messages)
-#define RESP_DEPLOYMENT_STATE                           (CMD_DEPLOY + RESPONSE_OFFSET)
-#define RESP_INCORRECT_PASSWORD                         (CMD_RESTART + RESPONSE_OFFSET)
-#define RESP_RECORDED_SOLAR_CELLS                       (CMD_RECORD_SOLAR_CELLS + RESPONSE_OFFSET)
 
 #define PRINT_BUFF(BUFF, LEN) { \
   for(size_t i = 0; i < LEN; i++) { \
