@@ -1,7 +1,7 @@
 #ifndef _FOSSA_COMMS_H
 #define _FOSSA_COMMS_H
 
-#include <aes.hpp>
+#include <aes.h>
 #include <string.h>
 
 #if ARDUINO >= 100
