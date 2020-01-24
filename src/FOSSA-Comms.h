@@ -92,6 +92,7 @@ float FCP_Get_Board_Temperature(uint8_t* optData);
 uint16_t FCP_Get_Reset_Counter(uint8_t* optData);
 int8_t FCP_Get_MCU_Temperature(uint8_t* optData);
 uint8_t FCP_Get_Power_Configuration(uint8_t* optData);
+uint32_t FCP_Get_Uptime_Counter(uint8_t* optData);
 
 float FCP_System_Info_Get_Voltage(uint8_t* optData, uint8_t pos);
 float FCP_System_Info_Get_Temperature(uint8_t* optData, uint8_t pos);

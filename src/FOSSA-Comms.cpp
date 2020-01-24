@@ -348,6 +348,16 @@ uint8_t FCP_Get_Power_Configuration(uint8_t* optData) {
   return(optData[14]);
 }
 
+uint32_t FCP_Get_Uptime_Counter(uint8_t* optData) {
+  if(optData == NULL) {
+    return(0);
+  }
+
+  uint32_t val;
+  memcpy(&val, optData + 15, sizeof(uint32_t));
+  return(val);
+}
+
 float FCP_System_Info_Get_Voltage(uint8_t* optData, uint8_t pos) {
   if(optData == NULL) {
     return(0);
