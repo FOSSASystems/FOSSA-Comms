@@ -51,6 +51,7 @@
 #define RESP_REPEATED_MESSAGE_CUSTOM                    (CMD_RETRANSMIT_CUSTOM + RESPONSE_OFFSET)
 #define RESP_SYSTEM_INFO                                (CMD_TRANSMIT_SYSTEM_INFO + RESPONSE_OFFSET)
 #define RESP_PACKET_INFO                                (CMD_GET_PACKET_INFO + RESPONSE_OFFSET)
+#define RESP_STATISTICS                                 (CMD_GET_STATISTICS + RESPONSE_OFFSET)
 #define RESP_DEPLOYMENT_STATE                           (CMD_GET_STATISTICS + 1 + RESPONSE_OFFSET)
 #define RESP_RECORDED_SOLAR_CELLS                       (CMD_GET_STATISTICS + 2 + RESPONSE_OFFSET)
 
