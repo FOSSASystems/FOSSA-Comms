@@ -86,13 +86,13 @@ int16_t FCP_Encode(uint8_t* frame, char* callsign, uint8_t functionId, uint8_t o
 float FCP_Get_Battery_Voltage(uint8_t* optData);
 float FCP_Get_Battery_Charging_Current(uint8_t* optData);
 float FCP_Get_Battery_Charging_Voltage(uint8_t* optData);
+uint32_t FCP_Get_Uptime_Counter(uint8_t* optData);
+uint8_t FCP_Get_Power_Configuration(uint8_t* optData);
+uint16_t FCP_Get_Reset_Counter(uint8_t* optData);
 float FCP_Get_Solar_Cell_Voltage(uint8_t cell, uint8_t* optData);
 float FCP_Get_Battery_Temperature(uint8_t* optData);
 float FCP_Get_Board_Temperature(uint8_t* optData);
-uint16_t FCP_Get_Reset_Counter(uint8_t* optData);
 int8_t FCP_Get_MCU_Temperature(uint8_t* optData);
-uint8_t FCP_Get_Power_Configuration(uint8_t* optData);
-uint32_t FCP_Get_Uptime_Counter(uint8_t* optData);
 
 float FCP_System_Info_Get_Voltage(uint8_t* optData, uint8_t pos);
 float FCP_System_Info_Get_Temperature(uint8_t* optData, uint8_t pos);
