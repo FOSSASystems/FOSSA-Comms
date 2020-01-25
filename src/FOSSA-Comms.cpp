@@ -286,7 +286,7 @@ int16_t FCP_Encode(uint8_t* frame, char* callsign, uint8_t functionId, uint8_t o
   return(ERR_FRAME_INVALID);
 }
 
-float FCP_Get_Battery_Charging_Voltage(uint8_t* optData) {
+float FCP_Get_Battery_Voltage(uint8_t* optData) {
   return(FCP_System_Info_Get_Voltage(optData, 0));
 }
 
@@ -300,52 +300,8 @@ float FCP_Get_Battery_Charging_Current(uint8_t* optData) {
   return((float)raw * ((float)CURRENT_MULTIPLIER / (float)CURRENT_UNIT));
 }
 
-float FCP_Get_Battery_Voltage(uint8_t* optData) {
+float FCP_Get_Battery_Charging_Voltage(uint8_t* optData) {
   return(FCP_System_Info_Get_Voltage(optData, 3));
-}
-
-float FCP_Get_Solar_Cell_Voltage(uint8_t cell, uint8_t* optData) {
-  if(cell > 2) {
-    return(0);
-  }
-
-  return(FCP_System_Info_Get_Voltage(optData, 4 + cell));
-}
-
-float FCP_Get_Battery_Temperature(uint8_t* optData) {
-  return(FCP_System_Info_Get_Temperature(optData, 7));
-}
-
-float FCP_Get_Board_Temperature(uint8_t* optData) {
-  return(FCP_System_Info_Get_Temperature(optData, 9));
-}
-
-int8_t FCP_Get_MCU_Temperature(uint8_t* optData) {
-  if(optData == NULL) {
-    return(0);
-  }
-
-  int8_t val;
-  memcpy(&val, optData + 11, sizeof(int8_t));
-  return(val);
-}
-
-uint16_t FCP_Get_Reset_Counter(uint8_t* optData) {
-  if(optData == NULL) {
-    return(0);
-  }
-
-  uint16_t val;
-  memcpy(&val, optData + 12, sizeof(uint16_t));
-  return(val);
-}
-
-uint8_t FCP_Get_Power_Configuration(uint8_t* optData) {
-  if(optData == NULL) {
-    return(0);
-  }
-
-  return(optData[14]);
 }
 
 uint32_t FCP_Get_Uptime_Counter(uint8_t* optData) {
@@ -354,7 +310,51 @@ uint32_t FCP_Get_Uptime_Counter(uint8_t* optData) {
   }
 
   uint32_t val;
-  memcpy(&val, optData + 15, sizeof(uint32_t));
+  memcpy(&val, optData + 4, sizeof(uint32_t));
+  return(val);
+}
+
+uint8_t FCP_Get_Power_Configuration(uint8_t* optData) {
+  if(optData == NULL) {
+    return(0);
+  }
+
+  return(optData[8]);
+}
+
+uint16_t FCP_Get_Reset_Counter(uint8_t* optData) {
+  if(optData == NULL) {
+    return(0);
+  }
+
+  uint16_t val;
+  memcpy(&val, optData + 9, sizeof(uint16_t));
+  return(val);
+}
+
+float FCP_Get_Solar_Cell_Voltage(uint8_t cell, uint8_t* optData) {
+  if(cell > 2) {
+    return(0);
+  }
+
+  return(FCP_System_Info_Get_Voltage(optData, 11 + cell));
+}
+
+float FCP_Get_Battery_Temperature(uint8_t* optData) {
+  return(FCP_System_Info_Get_Temperature(optData, 14));
+}
+
+float FCP_Get_Board_Temperature(uint8_t* optData) {
+  return(FCP_System_Info_Get_Temperature(optData, 16));
+}
+
+int8_t FCP_Get_MCU_Temperature(uint8_t* optData) {
+  if(optData == NULL) {
+    return(0);
+  }
+
+  int8_t val;
+  memcpy(&val, optData + 18, sizeof(int8_t));
   return(val);
 }
 

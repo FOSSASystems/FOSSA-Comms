@@ -83,9 +83,9 @@ int16_t FCP_Get_OptData(char* callsign, uint8_t* frame, uint8_t frameLen, uint8_
 
 int16_t FCP_Encode(uint8_t* frame, char* callsign, uint8_t functionId, uint8_t optDataLen = 0, uint8_t* optData = NULL, const uint8_t* key = NULL, const char* password = NULL);
 
-float FCP_Get_Battery_Charging_Voltage(uint8_t* optData);
-float FCP_Get_Battery_Charging_Current(uint8_t* optData);
 float FCP_Get_Battery_Voltage(uint8_t* optData);
+float FCP_Get_Battery_Charging_Current(uint8_t* optData);
+float FCP_Get_Battery_Charging_Voltage(uint8_t* optData);
 float FCP_Get_Solar_Cell_Voltage(uint8_t cell, uint8_t* optData);
 float FCP_Get_Battery_Temperature(uint8_t* optData);
 float FCP_Get_Board_Temperature(uint8_t* optData);
