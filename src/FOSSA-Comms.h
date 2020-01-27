@@ -96,5 +96,6 @@ int8_t FCP_Get_MCU_Temperature(uint8_t* optData);
 
 float FCP_System_Info_Get_Voltage(uint8_t* optData, uint8_t pos);
 float FCP_System_Info_Get_Temperature(uint8_t* optData, uint8_t pos);
+float FCP_System_Info_Get_Current(uint8_t* optData, uint8_t pos);
 
 #endif

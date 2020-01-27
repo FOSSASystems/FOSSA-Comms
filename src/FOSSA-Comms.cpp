@@ -291,13 +291,7 @@ float FCP_Get_Battery_Voltage(uint8_t* optData) {
 }
 
 float FCP_Get_Battery_Charging_Current(uint8_t* optData) {
-  if(optData == NULL) {
-    return(0);
-  }
-
-  int16_t raw;
-  memcpy(&raw, optData + 1, sizeof(int16_t));
-  return((float)raw * ((float)CURRENT_MULTIPLIER / (float)CURRENT_UNIT));
+  return(FCP_System_Info_Get_Current(optData, 1));
 }
 
 float FCP_Get_Battery_Charging_Voltage(uint8_t* optData) {
@@ -374,4 +368,14 @@ float FCP_System_Info_Get_Temperature(uint8_t* optData, uint8_t pos) {
   int16_t raw;
   memcpy(&raw, optData + pos, sizeof(int16_t));
   return((float)raw * ((float)TEMPERATURE_MULTIPLIER / (float)TEMPERATURE_UNIT));
+}
+
+float FCP_System_Info_Get_Current(uint8_t* optData, uint8_t pos) {
+  if(optData == NULL) {
+    return(0);
+  }
+  
+  int16_t raw;
+  memcpy(&raw, optData + pos, sizeof(int16_t));
+  return((float)raw * ((float)CURRENT_MULTIPLIER / (float)CURRENT_UNIT));
 }
