@@ -54,6 +54,7 @@
 #define RESP_STATISTICS                                 (CMD_GET_STATISTICS + RESPONSE_OFFSET)
 #define RESP_DEPLOYMENT_STATE                           (CMD_GET_STATISTICS + 1 + RESPONSE_OFFSET)
 #define RESP_RECORDED_SOLAR_CELLS                       (CMD_GET_STATISTICS + 2 + RESPONSE_OFFSET)
+#define RESP_CAMERA_STATE                               (CMD_GET_STATISTICS + 3 + RESPONSE_OFFSET)
 
 // private commands (encrypted uplink messages)
 #define CMD_DEPLOY                                      (0x00 + PRIVATE_OFFSET)
