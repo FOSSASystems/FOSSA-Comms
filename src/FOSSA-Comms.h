@@ -44,6 +44,9 @@
 #define CMD_TRANSMIT_SYSTEM_INFO                        (0x03)
 #define CMD_GET_PACKET_INFO                             (0x04)
 #define CMD_GET_STATISTICS                              (0x05)
+#define CMD_GET_FULL_SYSTEM_INFO                        (0x06)
+
+#define NUM_PUBLIC_COMMANDS                             (7)
 
 // public responses (unencrypted downlink messages)
 #define RESP_PONG                                       (CMD_PING + RESPONSE_OFFSET)
@@ -52,9 +55,10 @@
 #define RESP_SYSTEM_INFO                                (CMD_TRANSMIT_SYSTEM_INFO + RESPONSE_OFFSET)
 #define RESP_PACKET_INFO                                (CMD_GET_PACKET_INFO + RESPONSE_OFFSET)
 #define RESP_STATISTICS                                 (CMD_GET_STATISTICS + RESPONSE_OFFSET)
-#define RESP_DEPLOYMENT_STATE                           (CMD_GET_STATISTICS + 1 + RESPONSE_OFFSET)
-#define RESP_RECORDED_SOLAR_CELLS                       (CMD_GET_STATISTICS + 2 + RESPONSE_OFFSET)
-#define RESP_CAMERA_STATE                               (CMD_GET_STATISTICS + 3 + RESPONSE_OFFSET)
+#define RESP_FULL_SYSTEM_INFO                           (CMD_GET_FULL_SYSTEM_INFO + RESPONSE_OFFSET)
+#define RESP_DEPLOYMENT_STATE                           (NUM_PUBLIC_COMMANDS + RESPONSE_OFFSET)
+#define RESP_RECORDED_SOLAR_CELLS                       (NUM_PUBLIC_COMMANDS + 1 + RESPONSE_OFFSET)
+#define RESP_CAMERA_STATE                               (NUM_PUBLIC_COMMANDS + 2 + RESPONSE_OFFSET)
 
 // private commands (encrypted uplink messages)
 #define CMD_DEPLOY                                      (0x00 + PRIVATE_OFFSET)
@@ -68,6 +72,8 @@
 #define CMD_SET_RECEIVE_WINDOWS                         (0x08 + PRIVATE_OFFSET)
 #define CMD_RECORD_SOLAR_CELLS                          (0x09 + PRIVATE_OFFSET)
 #define CMD_CAMERA_CAPTURE                              (0x0A + PRIVATE_OFFSET)
+
+#define NUM_PRIVATE_COMMANDS                            (11)
 
 #define PRINT_BUFF(BUFF, LEN) { \
   for(size_t i = 0; i < LEN; i++) { \
