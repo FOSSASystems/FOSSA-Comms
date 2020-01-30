@@ -73,8 +73,9 @@
 #define CMD_RECORD_SOLAR_CELLS                          (0x09 + PRIVATE_OFFSET)
 #define CMD_CAMERA_CAPTURE                              (0x0A + PRIVATE_OFFSET)
 #define CMD_SET_POWER_LIMITS                            (0x0B + PRIVATE_OFFSET)
+#define CMD_SET_RTC                                     (0x0C + PRIVATE_OFFSET)
 
-#define NUM_PRIVATE_COMMANDS                            (12)
+#define NUM_PRIVATE_COMMANDS                            (13)
 
 #define PRINT_BUFF(BUFF, LEN) { \
   for(size_t i = 0; i < LEN; i++) { \
