@@ -34,8 +34,8 @@
 #define ERR_LENGTH_MISMATCH                           -4
 
 // communication protocol definitions
-#define RESPONSE_OFFSET                                 0x10
-#define PRIVATE_OFFSET                                  0x20
+#define RESPONSE_OFFSET                                 0x20
+#define PRIVATE_OFFSET                                  0x40
 
 // public commands (unencrypted uplink messages)
 #define CMD_PING                                        (0x00)
@@ -45,8 +45,9 @@
 #define CMD_GET_PACKET_INFO                             (0x04)
 #define CMD_GET_STATISTICS                              (0x05)
 #define CMD_GET_FULL_SYSTEM_INFO                        (0x06)
+#define CMD_STORE_AND_FORWARD                           (0x07)
 
-#define NUM_PUBLIC_COMMANDS                             (7)
+#define NUM_PUBLIC_COMMANDS                             (8)
 
 // public responses (unencrypted downlink messages)
 #define RESP_PONG                                       (CMD_PING + RESPONSE_OFFSET)
@@ -56,9 +57,14 @@
 #define RESP_PACKET_INFO                                (CMD_GET_PACKET_INFO + RESPONSE_OFFSET)
 #define RESP_STATISTICS                                 (CMD_GET_STATISTICS + RESPONSE_OFFSET)
 #define RESP_FULL_SYSTEM_INFO                           (CMD_GET_FULL_SYSTEM_INFO + RESPONSE_OFFSET)
+#define RESP_FORWARDED_MESSAGE                          (CMD_STORE_AND_FORWARD + RESPONSE_OFFSET)
 #define RESP_DEPLOYMENT_STATE                           (NUM_PUBLIC_COMMANDS + RESPONSE_OFFSET)
 #define RESP_RECORDED_SOLAR_CELLS                       (NUM_PUBLIC_COMMANDS + 1 + RESPONSE_OFFSET)
 #define RESP_CAMERA_STATE                               (NUM_PUBLIC_COMMANDS + 2 + RESPONSE_OFFSET)
+#define RESP_RECORDED_IMU                               (NUM_PUBLIC_COMMANDS + 3 + RESPONSE_OFFSET)
+#define RESP_ADCS_RESULT                                (NUM_PUBLIC_COMMANDS + 4 + RESPONSE_OFFSET)
+#define RESP_CAMERA_PICTURE                             (NUM_PUBLIC_COMMANDS + 5 + RESPONSE_OFFSET)
+#define RESP_GPS_LOG                                    (NUM_PUBLIC_COMMANDS + 6 + RESPONSE_OFFSET)
 
 // private commands (encrypted uplink messages)
 #define CMD_DEPLOY                                      (0x00 + PRIVATE_OFFSET)
@@ -74,8 +80,13 @@
 #define CMD_CAMERA_CAPTURE                              (0x0A + PRIVATE_OFFSET)
 #define CMD_SET_POWER_LIMITS                            (0x0B + PRIVATE_OFFSET)
 #define CMD_SET_RTC                                     (0x0C + PRIVATE_OFFSET)
+#define CMD_RECORD_IMU                                  (0x0D + PRIVATE_OFFSET)
+#define CMD_RUN_ADCS                                    (0x0E + PRIVATE_OFFSET)
+#define CMD_GET_PICTURE                                 (0x0F + PRIVATE_OFFSET)
+#define CMD_LOG_GPS                                     (0x10 + PRIVATE_OFFSET)
+#define CMD_GET_GPS_LOG                                 (0x11 + PRIVATE_OFFSET)
 
-#define NUM_PRIVATE_COMMANDS                            (13)
+#define NUM_PRIVATE_COMMANDS                            (17)
 
 #define PRINT_BUFF(BUFF, LEN) { \
   for(size_t i = 0; i < LEN; i++) { \
