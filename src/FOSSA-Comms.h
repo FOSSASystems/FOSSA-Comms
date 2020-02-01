@@ -82,11 +82,12 @@
 #define CMD_SET_RTC                                     (0x0C + PRIVATE_OFFSET)
 #define CMD_RECORD_IMU                                  (0x0D + PRIVATE_OFFSET)
 #define CMD_RUN_ADCS                                    (0x0E + PRIVATE_OFFSET)
-#define CMD_GET_PICTURE                                 (0x0F + PRIVATE_OFFSET)
-#define CMD_LOG_GPS                                     (0x10 + PRIVATE_OFFSET)
-#define CMD_GET_GPS_LOG                                 (0x11 + PRIVATE_OFFSET)
+#define CMD_GET_PICTURE_BURST                           (0x0F + PRIVATE_OFFSET)
+#define CMD_GET_PICTURE_SINGLE                          (0x10 + PRIVATE_OFFSET)
+#define CMD_LOG_GPS                                     (0x11 + PRIVATE_OFFSET)
+#define CMD_GET_GPS_LOG                                 (0x12 + PRIVATE_OFFSET)
 
-#define NUM_PRIVATE_COMMANDS                            (17)
+#define NUM_PRIVATE_COMMANDS                            (18)
 
 #define PRINT_BUFF(BUFF, LEN) { \
   for(size_t i = 0; i < LEN; i++) { \
