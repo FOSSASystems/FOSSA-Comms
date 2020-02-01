@@ -63,8 +63,9 @@
 #define RESP_CAMERA_STATE                               (NUM_PUBLIC_COMMANDS + 2 + RESPONSE_OFFSET)
 #define RESP_RECORDED_IMU                               (NUM_PUBLIC_COMMANDS + 3 + RESPONSE_OFFSET)
 #define RESP_ADCS_RESULT                                (NUM_PUBLIC_COMMANDS + 4 + RESPONSE_OFFSET)
-#define RESP_CAMERA_PICTURE                             (NUM_PUBLIC_COMMANDS + 5 + RESPONSE_OFFSET)
-#define RESP_GPS_LOG                                    (NUM_PUBLIC_COMMANDS + 6 + RESPONSE_OFFSET)
+#define RESP_GPS_LOG                                    (NUM_PUBLIC_COMMANDS + 5 + RESPONSE_OFFSET)
+#define RESP_FLASH_CONTENTS                             (NUM_PUBLIC_COMMANDS + 6 + RESPONSE_OFFSET)
+#define RESP_CAMERA_PICTURE                             (NUM_PUBLIC_COMMANDS + 7 + RESPONSE_OFFSET)
 
 // private commands (encrypted uplink messages)
 #define CMD_DEPLOY                                      (0x00 + PRIVATE_OFFSET)
@@ -82,12 +83,13 @@
 #define CMD_SET_RTC                                     (0x0C + PRIVATE_OFFSET)
 #define CMD_RECORD_IMU                                  (0x0D + PRIVATE_OFFSET)
 #define CMD_RUN_ADCS                                    (0x0E + PRIVATE_OFFSET)
-#define CMD_GET_PICTURE_BURST                           (0x0F + PRIVATE_OFFSET)
-#define CMD_GET_PICTURE_SINGLE                          (0x10 + PRIVATE_OFFSET)
-#define CMD_LOG_GPS                                     (0x11 + PRIVATE_OFFSET)
-#define CMD_GET_GPS_LOG                                 (0x12 + PRIVATE_OFFSET)
+#define CMD_LOG_GPS                                     (0x0F + PRIVATE_OFFSET)
+#define CMD_GET_GPS_LOG                                 (0x10 + PRIVATE_OFFSET)
+#define CMD_GET_FLASH_CONTENTS                          (0x11 + PRIVATE_OFFSET)
+#define CMD_GET_PICTURE_LENGTH                          (0x12 + PRIVATE_OFFSET)
+#define CMD_GET_PICTURE_BURST                           (0x13 + PRIVATE_OFFSET)
 
-#define NUM_PRIVATE_COMMANDS                            (18)
+#define NUM_PRIVATE_COMMANDS                            (19)
 
 #define PRINT_BUFF(BUFF, LEN) { \
   for(size_t i = 0; i < LEN; i++) { \
