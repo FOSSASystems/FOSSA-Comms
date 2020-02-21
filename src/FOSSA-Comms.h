@@ -92,8 +92,9 @@
 #define CMD_GET_FLASH_CONTENTS                          (0x11 + PRIVATE_OFFSET)
 #define CMD_GET_PICTURE_LENGTH                          (0x12 + PRIVATE_OFFSET)
 #define CMD_GET_PICTURE_BURST                           (0x13 + PRIVATE_OFFSET)
+#define CMD_ROUTE                                       (0x14 + PRIVATE_OFFSET)
 
-#define NUM_PRIVATE_COMMANDS                            (19)
+#define NUM_PRIVATE_COMMANDS                            (20)
 
 #define PRINT_BUFF(BUFF, LEN) { \
   for(size_t i = 0; i < LEN; i++) { \
