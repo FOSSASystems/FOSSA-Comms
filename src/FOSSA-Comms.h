@@ -96,6 +96,8 @@
 
 #define NUM_PRIVATE_COMMANDS                            (20)
 
+#define RESP_ACKNOWLEDGE                                (PRIVATE_OFFSET - 1)
+
 #define PRINT_BUFF(BUFF, LEN) { \
   for(size_t i = 0; i < LEN; i++) { \
     Serial.print(F("0x")); \
