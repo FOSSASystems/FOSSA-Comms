@@ -94,8 +94,9 @@
 #define CMD_GET_PICTURE_BURST                           (0x13 + PRIVATE_OFFSET)
 #define CMD_ROUTE                                       (0x14 + PRIVATE_OFFSET)
 #define CMD_SET_FLASH_CONTENTS                          (0x15 + PRIVATE_OFFSET)
+#define CMD_SET_TLE                                     (0x16 + PRIVATE_OFFSET)
 
-#define NUM_PRIVATE_COMMANDS                            (22)
+#define NUM_PRIVATE_COMMANDS                            (23)
 
 #define RESP_ACKNOWLEDGE                                (PRIVATE_OFFSET - 1)
 
