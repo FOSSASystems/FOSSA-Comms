@@ -26,6 +26,13 @@
 #define TEMPERATURE_MULTIPLIER                        10 // 0.01 deg C resolution
 #define TEMPERATURE_UNIT                              1000
 
+// RESP_STATISTICS flags
+#define STATS_FLAGS_TEMPERATURES                      0b00000001
+#define STATS_FLAGS_CURRENTS                          0b00000010
+#define STATS_FLAGS_VOLTAGES                          0b00000100
+#define STATS_FLAGS_LIGHT                             0b00001000
+#define STATS_FLAGS_IMU                               0b00010000
+
 // status codes
 #define ERR_NONE                                      0
 #define ERR_CALLSIGN_INVALID                          -1
