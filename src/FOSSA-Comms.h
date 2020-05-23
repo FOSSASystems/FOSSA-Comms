@@ -73,7 +73,7 @@
 #define RESP_RECORDED_IMU                               (NUM_PUBLIC_COMMANDS + 3 + RESPONSE_OFFSET)
 #define RESP_ADCS_RESULT                                (NUM_PUBLIC_COMMANDS + 4 + RESPONSE_OFFSET)
 #define RESP_GPS_LOG                                    (NUM_PUBLIC_COMMANDS + 5 + RESPONSE_OFFSET)
-#define RESP_GPS_LOG_LENGTH                             (NUM_PUBLIC_COMMANDS + 6 + RESPONSE_OFFSET)
+#define RESP_GPS_LOG_STATE                              (NUM_PUBLIC_COMMANDS + 6 + RESPONSE_OFFSET)
 #define RESP_FLASH_CONTENTS                             (NUM_PUBLIC_COMMANDS + 7 + RESPONSE_OFFSET)
 #define RESP_CAMERA_PICTURE                             (NUM_PUBLIC_COMMANDS + 8 + RESPONSE_OFFSET)
 #define RESP_CAMERA_PICTURE_LENGTH                      (NUM_PUBLIC_COMMANDS + 9 + RESPONSE_OFFSET)
@@ -102,6 +102,7 @@
 #define CMD_ROUTE                                       (0x14 + PRIVATE_OFFSET)
 #define CMD_SET_FLASH_CONTENTS                          (0x15 + PRIVATE_OFFSET)
 #define CMD_SET_TLE                                     (0x16 + PRIVATE_OFFSET)
+#define CMD_GET_GPS_LOG_STATE                           (0x17 + PRIVATE_OFFSET)
 
 #define NUM_PRIVATE_COMMANDS                            (23)
 
