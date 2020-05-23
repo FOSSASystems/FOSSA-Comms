@@ -55,7 +55,7 @@
 #define CMD_STORE_AND_FORWARD_ADD                       (0x07)
 #define CMD_STORE_AND_FORWARD_REQUEST                   (0x08)
 
-#define NUM_PUBLIC_COMMANDS                             (9)
+#define NUM_PUBLIC_COMMANDS                             (0x09)
 
 // public responses (unencrypted downlink messages)
 #define RESP_PONG                                       (CMD_PING + RESPONSE_OFFSET)
@@ -77,6 +77,10 @@
 #define RESP_FLASH_CONTENTS                             (NUM_PUBLIC_COMMANDS + 7 + RESPONSE_OFFSET)
 #define RESP_CAMERA_PICTURE                             (NUM_PUBLIC_COMMANDS + 8 + RESPONSE_OFFSET)
 #define RESP_CAMERA_PICTURE_LENGTH                      (NUM_PUBLIC_COMMANDS + 9 + RESPONSE_OFFSET)
+#define RESP_GPS_COMMAND_RESPONSE                       (NUM_PUBLIC_COMMANDS + 10 + RESPONSE_OFFSET)
+
+// ACK is the last public function ID
+#define RESP_ACKNOWLEDGE                                (PRIVATE_OFFSET - 1)
 
 // private commands (encrypted uplink messages)
 #define CMD_DEPLOY                                      (0x00 + PRIVATE_OFFSET)
@@ -103,10 +107,9 @@
 #define CMD_SET_FLASH_CONTENTS                          (0x15 + PRIVATE_OFFSET)
 #define CMD_SET_TLE                                     (0x16 + PRIVATE_OFFSET)
 #define CMD_GET_GPS_LOG_STATE                           (0x17 + PRIVATE_OFFSET)
+#define CMD_RUN_GPS_COMMAND                             (0x18 + PRIVATE_OFFSET)
 
-#define NUM_PRIVATE_COMMANDS                            (23)
-
-#define RESP_ACKNOWLEDGE                                (PRIVATE_OFFSET - 1)
+#define NUM_PRIVATE_COMMANDS                            (0x19)
 
 #define PRINT_BUFF(BUFF, LEN) { \
   for(size_t i = 0; i < LEN; i++) { \
