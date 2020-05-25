@@ -108,8 +108,9 @@
 #define CMD_SET_TLE                                     (0x16 + PRIVATE_OFFSET)
 #define CMD_GET_GPS_LOG_STATE                           (0x17 + PRIVATE_OFFSET)
 #define CMD_RUN_GPS_COMMAND                             (0x18 + PRIVATE_OFFSET)
+#define CMD_SET_SLEEP_INTERVALS                         (0x19 + PRIVATE_OFFSET)
 
-#define NUM_PRIVATE_COMMANDS                            (0x19)
+#define NUM_PRIVATE_COMMANDS                            (0x1A)
 
 #define PRINT_BUFF(BUFF, LEN) { \
   for(size_t i = 0; i < LEN; i++) { \
