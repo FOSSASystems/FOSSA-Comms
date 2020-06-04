@@ -110,8 +110,10 @@
 #define CMD_RUN_GPS_COMMAND                             (0x18 + PRIVATE_OFFSET)
 #define CMD_SET_SLEEP_INTERVALS                         (0x19 + PRIVATE_OFFSET)
 #define CMD_ABORT                                       (0x1A + PRIVATE_OFFSET)
+#define CMD_MANEUVER                                    (0x1B + PRIVATE_OFFSET)
+#define CMD_SET_ADCS_PARAMETERS                         (0x1C + PRIVATE_OFFSET)
 
-#define NUM_PRIVATE_COMMANDS                            (0x1B)
+#define NUM_PRIVATE_COMMANDS                            (0x1D)
 
 #define PRINT_BUFF(BUFF, LEN) { \
   for(size_t i = 0; i < LEN; i++) { \
