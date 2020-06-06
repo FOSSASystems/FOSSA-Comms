@@ -112,8 +112,9 @@
 #define CMD_ABORT                                       (0x1A + PRIVATE_OFFSET)
 #define CMD_MANEUVER                                    (0x1B + PRIVATE_OFFSET)
 #define CMD_SET_ADCS_PARAMETERS                         (0x1C + PRIVATE_OFFSET)
+#define CMD_ERASE_FLASH                                 (0x1D + PRIVATE_OFFSET)
 
-#define NUM_PRIVATE_COMMANDS                            (0x1D)
+#define NUM_PRIVATE_COMMANDS                            (0x1E)
 
 #define PRINT_BUFF(BUFF, LEN) { \
   for(size_t i = 0; i < LEN; i++) { \
