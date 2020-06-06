@@ -54,8 +54,9 @@
 #define CMD_GET_FULL_SYSTEM_INFO                        (0x06)
 #define CMD_STORE_AND_FORWARD_ADD                       (0x07)
 #define CMD_STORE_AND_FORWARD_REQUEST                   (0x08)
+#define CMD_REQUEST_PUBLIC_PICTURE                      (0x09)
 
-#define NUM_PUBLIC_COMMANDS                             (0x09)
+#define NUM_PUBLIC_COMMANDS                             (0x0A)
 
 // public responses (unencrypted downlink messages)
 #define RESP_PONG                                       (CMD_PING + RESPONSE_OFFSET)
@@ -67,6 +68,7 @@
 #define RESP_FULL_SYSTEM_INFO                           (CMD_GET_FULL_SYSTEM_INFO + RESPONSE_OFFSET)
 #define RESP_STORE_AND_FORWARD_ASSIGNED_SLOT            (CMD_STORE_AND_FORWARD_ADD + RESPONSE_OFFSET)
 #define RESP_FORWARDED_MESSAGE                          (CMD_STORE_AND_FORWARD_REQUEST + RESPONSE_OFFSET)
+#define RESP_PUBLIC_PICTURE                             (CMD_REQUEST_PUBLIC_PICTURE + RESPONSE_OFFSET)
 #define RESP_DEPLOYMENT_STATE                           (NUM_PUBLIC_COMMANDS + RESPONSE_OFFSET)
 #define RESP_RECORDED_SOLAR_CELLS                       (NUM_PUBLIC_COMMANDS + 1 + RESPONSE_OFFSET)
 #define RESP_CAMERA_STATE                               (NUM_PUBLIC_COMMANDS + 2 + RESPONSE_OFFSET)
