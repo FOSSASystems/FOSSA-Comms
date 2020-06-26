@@ -32,6 +32,7 @@
 #define STATS_FLAGS_VOLTAGES                          0b00000100
 #define STATS_FLAGS_LIGHT                             0b00001000
 #define STATS_FLAGS_IMU                               0b00010000
+#define STATS_FLAGS_POWER                             0b00100000
 
 // status codes
 #define ERR_NONE                                      0
