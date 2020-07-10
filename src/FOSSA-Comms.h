@@ -119,8 +119,9 @@
 #define CMD_SET_ADCS_CONTROLLER                         (0x1E + PRIVATE_OFFSET)
 #define CMD_SET_ADCS_EPHEMERIDES                        (0x1F + PRIVATE_OFFSET)
 #define CMD_DETUMBLE                                    (0x20 + PRIVATE_OFFSET)
+#define CMD_SET_IMU_OFFSET                              (0x21 + PRIVATE_OFFSET)
 
-#define NUM_PRIVATE_COMMANDS                            (0x21)
+#define NUM_PRIVATE_COMMANDS                            (0x22)
 
 #define PRINT_BUFF(BUFF, LEN) { \
   for(size_t i = 0; i < LEN; i++) { \
