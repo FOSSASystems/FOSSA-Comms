@@ -64,7 +64,7 @@ void loop() {
     Serial.println(F("Transmitting packet ... "));
 
     // data to transmit
-    uint8_t functionId = CMD_GET_LAST_PACKET_INFO;
+    uint8_t functionId = CMD_GET_PACKET_INFO;
 
     // build frame
     uint8_t len = FCP_Get_Frame_Length(callsign);
