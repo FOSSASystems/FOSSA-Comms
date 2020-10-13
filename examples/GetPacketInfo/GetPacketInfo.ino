@@ -120,7 +120,7 @@ void loop() {
         FCP_Get_OptData(callsign, respFrame, respLen, respOptData);
 
         // check packet info response
-        if(functionId == RESP_LAST_PACKET_INFO) {
+        if(functionId == RESP_PACKET_INFO) {
           Serial.println(F("Last packet info:"));
 
           Serial.print(F("SNR = "));
